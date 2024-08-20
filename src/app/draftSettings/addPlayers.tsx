@@ -1,5 +1,5 @@
 "use client"
-import { useState, useContext } from "react";
+import { useContext } from "react";
 
 import { DraftContext } from "../contexts/draftContext";
 
@@ -14,7 +14,7 @@ export default function AddPlayers() {
         }));
     }
     function handleRemovePlayers() {
-        if (draftData.numTeams === 0) return; // Minimum amount of teams is 0
+        if (draftData.numTeams === 4) return; // Minimum amount of teams is 4
         setDraftData((prev) => ({
             ...prev,
             numTeams: prev.numTeams - 1,

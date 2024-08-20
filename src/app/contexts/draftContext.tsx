@@ -25,7 +25,7 @@ interface DraftContextType {
 
 export const DraftContext = createContext<DraftContextType>({
     draftData: {
-        numTeams: 0,
+        numTeams: 4,
         ptsSystem: "PPR",
         numQB: 1,
         numRB: 2,
@@ -43,7 +43,7 @@ export const DraftContext = createContext<DraftContextType>({
 
 export const DraftProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [draftData, setDraftData] = useState<DraftDataType>({
-        numTeams: 0,
+        numTeams: 4,
         ptsSystem: "PPR",
         numQB: 1,
         numRB: 2,
