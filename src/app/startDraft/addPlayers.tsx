@@ -1,20 +1,31 @@
 "use client"
-import { useState } from "react";
+import { useState, useContext } from "react";
+
+import { DraftContext } from "../contexts/draftContext";
 
 export default function AddPlayers() {
-    const [numPlayers, setNumPlayers] = useState(0);
+    // use the DraftContext here
+    const { draftData, setDraftData } = useContext(DraftContext);
     function handleAddPlayers() {
-        setNumPlayers(numPlayers + 1);
+        if (draftData.numTeams === 12) return; // Maximum amount of teams is 12
+        setDraftData((prev) => ({
+            ...prev,
+            numTeams: prev.numTeams + 1,
+        }));
     }
     function handleRemovePlayers() {
-        setNumPlayers(numPlayers - 1);
+        if (draftData.numTeams === 0) return; // Minimum amount of teams is 0
+        setDraftData((prev) => ({
+            ...prev,
+            numTeams: prev.numTeams - 1,
+        }));
     }
     return (
         <>
             <h1>Add Players</h1>
             <button onClick={handleAddPlayers}>+</button>
             <button onClick={handleRemovePlayers}>-</button>
-            <h1>{numPlayers}</h1>
+            <h1>{draftData.numTeams}</h1>
         </>
     );
 }

@@ -1,7 +1,10 @@
 import StartDraftClient from "./startDraftClient";
+import { DraftProvider } from "../contexts/draftContext";
 
 export default function StartDraft() {
     return (
-        <StartDraftClient />
+        <DraftProvider>
+            <StartDraftClient />
+        </DraftProvider>
     );
 }
