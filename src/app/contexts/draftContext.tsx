@@ -2,7 +2,7 @@
 import { useState, createContext, ReactNode } from "react";
 
 // Define the type for the draft data
-interface DraftDataType {
+export interface DraftDataType {
     numTeams: number;
     ptsSystem: string;
     numQB: number;
@@ -10,7 +10,7 @@ interface DraftDataType {
     numWR: number;
     numTE: number;
     numFLX: number;
-    numSupFLX: number;
+    numSuperFLX: number;
     numDST: number;
     numK: number;
     numBench: number;
@@ -32,7 +32,7 @@ export const DraftContext = createContext<DraftContextType>({
         numWR: 2,
         numTE: 1,
         numFLX: 1,
-        numSupFLX: 0,
+        numSuperFLX: 0,
         numDST: 1,
         numK: 1,
         numBench: 7,
@@ -50,7 +50,7 @@ export const DraftProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         numWR: 2,
         numTE: 1,
         numFLX: 1,
-        numSupFLX: 0,
+        numSuperFLX: 0,
         numDST: 1,
         numK: 1,
         numBench: 7,
